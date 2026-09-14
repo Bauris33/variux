@@ -83,6 +83,23 @@ details p{color:var(--muted);margin:8px 0 0;font-size:13px}
  .hero img{aspect-ratio:16/8}
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1532891368592964');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1532891368592964&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <div class="wrap">
@@ -229,6 +246,15 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
 
     const result=await r.json();
     if(!r.ok || !result.ok) throw new Error('send failed');
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead', {
+        content_name: 'حامل الشاشة للسيارة',
+        value: order.total,
+        currency: 'DZD',
+        num_items: order.qty
+      });
+    }
 
     if(result.whatsapp_url){
       window.location.href=result.whatsapp_url;
