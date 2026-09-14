@@ -93,12 +93,16 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+
 fbq('init', '1532891368592964');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+
+<noscript>
+<img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1532891368592964&ev=PageView&noscript=1"
-/></noscript>
+/>
+</noscript>
 <!-- End Meta Pixel Code -->
 </head>
 <body>
@@ -283,5 +287,13 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
   }
 });
 </script>
+
+<script>
+window.addEventListener('load', function() {
+  console.log('VARIUX Pixel loaded:', typeof fbq === 'function');
+  console.log('VARIUX Pixel ID: 1532891368592964');
+});
+</script>
+
 </body>
 </html>
