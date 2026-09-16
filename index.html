@@ -252,7 +252,7 @@ document.getElementById('orderForm').addEventListener('submit', async function(e
     if(!r.ok || !result.ok) throw new Error('send failed');
 
     if (typeof fbq === 'function') {
-      fbq('track', 'Lead', {
+      fbq('track', 'InitiateCheckout', {
         content_name: 'حامل الشاشة للسيارة',
         value: order.total,
         currency: 'DZD',
